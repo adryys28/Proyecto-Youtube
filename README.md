@@ -6,10 +6,10 @@ Pipeline: **descubrir → detectar gancho → recortar → editar → publicar �
 
 | # | Paso | Automatizable | Herramienta |
 |---|------|---------------|-------------|
-| 1 | Elegir nicho y fuente de contenido **con permiso** | No (decisión) | — |
+| 1 | Nicho: infantil, vídeos largos, contenido propio | Hecho | — |
 | 2 | Descubrir vídeos con más tracción | Sí | `src/descubrir.py` (YouTube Data API v3) |
-| 3 | Detectar el gancho (momento más repetido) | Sí | `src/ganchos.py` (heatmap vía yt-dlp) |
-| 4 | Recortar y pasar a 9:16 | Sí | `src/recortar.py` (yt-dlp + ffmpeg) |
+| 3 | Analizar el gancho de los referentes (solo análisis) | Sí | `src/ganchos.py` (heatmap vía yt-dlp) |
+| 4 | Producir el vídeo propio (guion, voz, animación, montaje) | Parcial | Siguiente fase |
 | 5 | Subtítulos, título del gancho en los 2 primeros s, comentario/valor propio | Parcial | Whisper + ffmpeg (siguiente fase) |
 | 6 | Revisión humana y publicación programada | Parcial | YouTube Data API `videos.insert` |
 | 7 | Medir retención y repetir lo que funciona | Sí | YouTube Analytics API |
@@ -27,15 +27,18 @@ Cada clip debe llevar valor añadido real (contexto, comentario, edición, monta
 - Nivel 2 (anuncios): 1.000 suscriptores + 4.000 h en 12 meses o 10 M vistas de Shorts en 90 días.
 - Fuentes de terceros anuncian que desde el 01/02/2027 pasa a 8.000 h o 20 M vistas de Shorts. **No verificado en la fuente oficial.**
 
-## Nicho elegido: infantil, vídeos largos, fuente CC BY
+## Enfoque: contenido infantil 100 % propio (sin reutilizar vídeos ajenos)
 
-Implicaciones (verificar en el Centro de ayuda de YouTube):
-- **"Creado para niños" (COPPA)**: obligatorio marcarlo si el público son niños. Desactiva anuncios personalizados, comentarios, campana de notificaciones, tarjetas, pantallas finales y membresías. RPM entre un 40 % y un 90 % inferior según fuentes de terceros.
-- **Principios de calidad infantil** (desde 2021): canales con contenido infantil de baja calidad pueden ser expulsados del YPP.
-- **Recopilaciones de vídeos CC** sin aportación propia encajan en "contenido reutilizado" / "no auténtico" aunque la licencia lo permita: la licencia resuelve el copyright, no la monetización.
-- **CC BY en YouTube**: única licencia CC disponible; permite uso comercial con atribución en la descripción.
+Los vídeos de otros canales solo se **analizan** (temas, duración, ganchos). Nunca se descargan ni se reutilizan.
 
-Valor añadido mínimo recomendado por vídeo: narración propia, estructura educativa (colores, números, rutinas), montaje con hilo conductor y canciones/animaciones propias intercaladas.
+Reglas para evitar problemas legales:
+- **Canciones**: solo letras y melodías de dominio público verificado (tradicionales anónimas) o propias. La grabación, el arreglo y la animación de otro canal están protegidos aunque la canción sea tradicional.
+  - Dudosas: "The Wheels on the Bus" se atribuye a Verna Hills (1937-1939, fallecida en 1990): en la UE podría estar protegida hasta 2060.
+  - "Baby Shark": el cántico es tradicional (Tribunal Supremo de Corea, 2025), pero la versión de Pinkfong es suya.
+- **Personajes, nombres y estética**: propios. Nada que recuerde a Bebefinn, Cocomelon, Pinkfong, etc.
+- **IA**: permitida si el resultado es original; declarar contenido sintético realista. Música/voz de IA solo con herramientas cuya licencia permita uso comercial.
+- **"Creado para niños"**: marcar siempre (COPPA). Menos ingresos por anuncio; compensa con volumen de vídeos largos y otras vías (música en Spotify, merchandising propio).
+- **Principios de calidad infantil**: contenido educativo y cuidado; nada producido en masa con plantilla.
 
 ## Uso
 
@@ -44,19 +47,17 @@ pip install -r requirements.txt          # requiere ffmpeg en el PATH
 cp .env.example .env                       # rellena YOUTUBE_API_KEY
 
 # 1. Descubrir (ordenado por outlier = vistas / suscriptores)
-python src/descubrir.py "canciones infantiles" --licencia creativeCommon --duracion long --dias 365
+python src/descubrir.py "canciones infantiles" --duracion long --dias 365
 python src/descubrir.py --tendencias --region ES
 
-# 2. Ganchos del vídeo elegido (rechaza vídeos sin licencia CC y genera el texto de atribución)
+# 2. Ganchos de un vídeo de referencia (solo análisis, no descarga el vídeo)
 python src/ganchos.py "https://www.youtube.com/watch?v=ID" --top 3 --duracion 45
 
-# 3. Clips verticales
-python src/recortar.py salida/ganchos/ID.json
 ```
 
 Salidas en `salida/` (ignorada por git). El CSV usa `;` y UTF-8 con BOM para abrirlo directamente en Excel.
 
 ## Limitaciones conocidas
 - El heatmap solo existe en vídeos con suficientes visualizaciones.
-- El recorte 9:16 es central; si el sujeto no está centrado hace falta seguimiento de caras.
+- Desde servidores en la nube YouTube puede pedir verificación antibots: ejecutar `ganchos.py` en local.
 - Cuota API por defecto: 10.000 unidades/día; cada búsqueda cuesta 100.

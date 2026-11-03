@@ -8,7 +8,7 @@ Un vídeo con outlier alto funciona por el tema/gancho, no por el tamaño del ca
 
 Uso:
   python src/descubrir.py "inteligencia artificial" --region ES --idioma es --dias 30 --max 50
-  python src/descubrir.py "canciones infantiles" --licencia creativeCommon --duracion long
+  python src/descubrir.py "canciones infantiles" --duracion long
   python src/descubrir.py --tendencias --region ES
 
 Nota: --tendencias no admite filtro de licencia; revisa la columna 'licencia'.
@@ -109,8 +109,8 @@ def main():
     p.add_argument("--idioma", default="es")
     p.add_argument("--dias", type=int, default=30)
     p.add_argument("--max", type=int, default=50)
-    p.add_argument("--licencia", choices=["any", "creativeCommon", "youtube"], default="creativeCommon",
-                   help="creativeCommon = solo CC BY (reutilizable con atribución)")
+    p.add_argument("--licencia", choices=["any", "creativeCommon", "youtube"], default="any",
+                   help="Solo análisis de referencia: no se reutiliza ningún vídeo")
     p.add_argument("--duracion", choices=["any", "short", "medium", "long"], default="any",
                    help="short <4 min, medium 4-20 min, long >20 min")
     p.add_argument("--salida", default="salida/descubrimiento.csv")
