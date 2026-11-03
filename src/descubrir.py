@@ -8,7 +8,10 @@ Un vídeo con outlier alto funciona por el tema/gancho, no por el tamaño del ca
 
 Uso:
   python src/descubrir.py "inteligencia artificial" --region ES --idioma es --dias 30 --max 50
+  python src/descubrir.py "canciones infantiles" --licencia creativeCommon --duracion long
   python src/descubrir.py --tendencias --region ES
+
+Nota: --tendencias no admite filtro de licencia; revisa la columna 'licencia'.
 """
 import argparse, csv, os, sys
 from datetime import datetime, timedelta, timezone
@@ -25,13 +28,14 @@ def cliente():
     return build("youtube", "v3", developerKey=clave)
 
 
-def buscar_ids(yt, consulta, region, idioma, dias, maximo):
+def buscar_ids(yt, consulta, region, idioma, dias, maximo, licencia, duracion):
     desde = (datetime.now(timezone.utc) - timedelta(days=dias)).strftime("%Y-%m-%dT%H:%M:%SZ")
     ids, token = [], None
     while len(ids) < maximo:
         r = yt.search().list(
             q=consulta, part="id", type="video", order="viewCount",
             regionCode=region, relevanceLanguage=idioma, publishedAfter=desde,
+            videoLicense=licencia, videoDuration=duracion,
             maxResults=min(50, maximo - len(ids)), pageToken=token,
         ).execute()
         ids += [i["id"]["videoId"] for i in r.get("items", [])]
@@ -55,7 +59,7 @@ def en_lotes(lista, n=50):
 def detalles(yt, ids):
     videos = []
     for lote in en_lotes(ids):
-        r = yt.videos().list(part="snippet,statistics,contentDetails", id=",".join(lote)).execute()
+        r = yt.videos().list(part="snippet,statistics,contentDetails,status", id=",".join(lote)).execute()
         videos += r.get("items", [])
     canales = {v["snippet"]["channelId"] for v in videos}
     subs = {}
@@ -83,6 +87,8 @@ def puntuar(videos, subs):
             "canal": sn["channelTitle"],
             "publicado": sn["publishedAt"][:10],
             "duracion": v["contentDetails"]["duration"],
+            "licencia": v["status"].get("license", ""),          # creativeCommon = CC BY
+            "para_ninos": v["status"].get("madeForKids", ""),
             "vistas": vistas,
             "vistas_dia": round(vistas / dias),
             "likes": int(st.get("likeCount", 0)),
@@ -103,6 +109,10 @@ def main():
     p.add_argument("--idioma", default="es")
     p.add_argument("--dias", type=int, default=30)
     p.add_argument("--max", type=int, default=50)
+    p.add_argument("--licencia", choices=["any", "creativeCommon", "youtube"], default="creativeCommon",
+                   help="creativeCommon = solo CC BY (reutilizable con atribución)")
+    p.add_argument("--duracion", choices=["any", "short", "medium", "long"], default="any",
+                   help="short <4 min, medium 4-20 min, long >20 min")
     p.add_argument("--salida", default="salida/descubrimiento.csv")
     a = p.parse_args()
     if not a.consulta and not a.tendencias:
@@ -110,7 +120,7 @@ def main():
 
     yt = cliente()
     ids = tendencias_ids(yt, a.region, a.max) if a.tendencias else \
-        buscar_ids(yt, a.consulta, a.region, a.idioma, a.dias, a.max)
+        buscar_ids(yt, a.consulta, a.region, a.idioma, a.dias, a.max, a.licencia, a.duracion)
     filas = puntuar(*detalles(yt, ids))
 
     os.makedirs(os.path.dirname(a.salida), exist_ok=True)

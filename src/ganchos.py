@@ -52,13 +52,18 @@ def main():
     p.add_argument("--duracion", type=float, default=45, help="Segundos por clip")
     p.add_argument("--ignorar-inicio", type=float, default=0.03, help="Fracción inicial a descartar")
     p.add_argument("--umbral", type=float, default=0.5, help="Intensidad mínima relativa al pico principal")
+    p.add_argument("--forzar", action="store_true", help="Ignora la comprobación de licencia CC")
     p.add_argument("--salida", default="salida/ganchos")
     a = p.parse_args()
 
     info, hm = heatmap(a.url)
+    lic = info.get("license") or ""
+    if "Creative Commons" not in lic and not a.forzar:
+        sys.exit(f"Licencia no CC ('{lic or 'estándar'}'). Usa --forzar solo si tienes permiso escrito.")
     if not hm:
         sys.exit("Este vídeo no tiene datos de 'Lo más repetido'.")
     res = {"id": info["id"], "titulo": info["title"], "url": a.url,
+           "canal": info.get("channel"), "canal_url": info.get("channel_url"), "licencia": lic,
            "duracion": info["duration"],
            "clips": picos(hm, info["duration"], a.top, a.duracion, a.ignorar_inicio, a.umbral)}
 
@@ -68,6 +73,10 @@ def main():
         json.dump(res, f, ensure_ascii=False, indent=2)
     for c in res["clips"]:
         print(f"{c['inicio']:>7}s - {c['fin']:>7}s  intensidad {c['intensidad']}")
+    with open(os.path.join(a.salida, f"{info['id']}_atribucion.txt"), "w", encoding="utf-8") as f:
+        titulo, canal = info["title"], info.get("channel")
+        f.write(f'Contenido original: "{titulo}" de {canal} ({a.url}), '
+                "licencia Creative Commons Atribución (CC BY).\n")
     print(f"-> {ruta}")
 
 
