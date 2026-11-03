@@ -1,3 +1,5 @@
 google-api-python-client>=2.100
 yt-dlp>=2026.10.26
 python-dotenv>=1.0
+pyyaml>=6.0
+mido>=1.3

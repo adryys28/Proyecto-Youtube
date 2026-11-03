@@ -61,3 +61,15 @@ Salidas en `salida/` (ignorada por git). El CSV usa `;` y UTF-8 con BOM para abr
 - El heatmap solo existe en vídeos con suficientes visualizaciones.
 - Desde servidores en la nube YouTube puede pedir verificación antibots: ejecutar `ganchos.py` en local.
 - Cuota API por defecto: 10.000 unidades/día; cada búsqueda cuesta 100.
+
+## Producción (fase 6)
+
+```bash
+sudo apt install ffmpeg librsvg2-bin fluidsynth fluid-soundfont-gm espeak-ng
+pip install -r requirements.txt
+pip install kokoro soundfile      # voz de calidad (descarga pesos de Hugging Face la 1.ª vez)
+
+python src/producir.py guiones/video01.yaml --limite 11 --ancho 960   # prueba (~3 min de vídeo)
+python src/producir.py guiones/video01.yaml                            # vídeo completo 1080p + .srt
+```
+Sin Kokoro usa espeak-ng (voz robótica, solo para pruebas). Personajes, fondos y música se generan por código: todo es original.
