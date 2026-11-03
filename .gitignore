@@ -1,0 +1,6 @@
+.env
+__pycache__/
+salida/
+*.mp4
+*.webm
+*.part
