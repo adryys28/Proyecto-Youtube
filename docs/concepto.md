@@ -8,7 +8,7 @@ Base: `docs/investigacion.md` (hueco en español de primeras palabras y lenguaje
 ## Propuesta A — "Hola Palabrita" ⭐ recomendada
 - **Idea:** cada vídeo enseña 10-15 palabras de un tema (granja, comida, baño, colores) con repetición lenta, canción tradicional y pausa para que el niño repita.
 - **Personajes:** Palabrita, una nube pequeña que habla despacio, y Tic, un pájaro que pregunta "¿qué es esto?".
-- **Estilo:** 2D plano, colores pastel, fondos limpios, poco movimiento (recomendado para bebés; evita sobreestimulación).
+- **Estilo:** 2D plano, colores pastel, fondos limpios, poco movimiento (decisión de diseño para diferenciarse; no contrastada con estudios).
 - **Edad:** 1-3 años.
 - **Educativo:** vocabulario, sonidos de animales, gestos simples de signos para bebés.
 - **Diferencia:** ritmo pausado frente a la animación 3D hiperestimulante; español neutro con versión de España.
