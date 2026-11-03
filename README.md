@@ -1,6 +1,6 @@
 # Proyecto YouTube — canal de clips automatizado
 
-Pipeline: **descubrir → detectar gancho → recortar → editar → publicar → medir**.
+Pipeline: **analizar referentes → detectar ganchos → producir contenido propio → publicar → medir**.
 
 ## Plan paso a paso
 
@@ -19,7 +19,7 @@ Pipeline: **descubrir → detectar gancho → recortar → editar → publicar �
 - **Contenido no auténtico** (renombrado el 15/07/2025): penaliza lo producido en masa con plantilla y poca variación. La sanción puede afectar al **canal entero**.
 - Copyright: sin permiso del titular → reclamaciones de Content ID o avisos.
 
-Fuentes de contenido viables: vídeos propios (podcast, directos), creadores con **programa de clipping** o permiso por escrito, o contenido con licencia CC BY.
+Fuente de contenido elegida: **100 % propia** (ver abajo).
 Cada clip debe llevar valor añadido real (contexto, comentario, edición, montaje).
 
 ### Requisitos YPP (verificar en YouTube Studio > Ganar)
