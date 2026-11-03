@@ -63,7 +63,7 @@ Ejemplo: `Primeras palabras para bebés: animales de la granja | [Personaje] �
 4. **Familias reales / juguetes** (Vlad y Niki, Kids Roma, Nastya): requieren niños en pantalla. No recomendado: implicaciones legales con menores.
 
 ## 5. Huecos detectados (demanda con poca competencia en español)
-1. **Primeras palabras / aprender a hablar en español**: ~3 M de mediana y solo 6-9 canales, uno dominante. En la muestra no aparece un equivalente en español de Ms Rachel con contenido original.
+1. **Primeras palabras / aprender a hablar en español** (ojo: existe *Cantando Aprendo a Hablar*, 4,19 M de suscriptores, que no aparece entre los vídeos largos de 2026 de la muestra; hay que diferenciarse): ~3 M de mediana y solo 6-9 canales, uno dominante. En la muestra no aparece un equivalente en español de Ms Rachel con contenido original.
 2. **Animales + vocabulario**: combina el tema más fuerte (animales/dinosaurios) con aprendizaje de palabras.
 3. **Rutinas con canciones** (dormir, comer, bañarse): mercado fragmentado (14 canales en 20 resultados); nadie domina.
 4. **Números en español**: un único canal concentra un tercio del top.
