@@ -41,3 +41,10 @@ Base: `docs/investigacion.md` (hueco en español de primeras palabras y lenguaje
 
 ## Decisión
 Se continúa con **A — Hola Palabrita** salvo que indiques otra.
+
+## Regla de repertorio (ver `docs/repertorio.csv`)
+- España: autores fallecidos antes del 7/12/1987 → 80 años tras su muerte; resto → 70 años.
+- Riesgo **bajo**: autor conocido y fallecido hace más de 80 años, o anónimo con publicación antigua documentada.
+- Riesgo **medio**: tradicional sin datación verificada. Usar solo tras comprobar en SGAE o con letra propia sobre la melodía.
+- Riesgo **alto**: no usar.
+- Siempre: grabación, arreglo y letra española propios. Las canciones originales del canal son la opción más segura y además generan derechos propios.
