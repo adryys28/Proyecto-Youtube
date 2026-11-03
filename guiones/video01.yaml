@@ -88,14 +88,12 @@ escenas:
   tipo: cancion
   cancion: vamos_granja
   fondo: granja
-  repeticiones: 2
-  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+  repeticiones: 1
 - id: cancion_que_es
   tipo: cancion
   cancion: que_sera
   fondo: granja
-  repeticiones: 2
-  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+  repeticiones: 1
 - id: vaca_pista
   tipo: narracion
   personaje: tic

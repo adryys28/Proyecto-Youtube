@@ -73,3 +73,12 @@ python src/producir.py guiones/video01.yaml --limite 11 --ancho 960   # prueba (
 python src/producir.py guiones/video01.yaml                            # vídeo completo 1080p + .srt
 ```
 Sin Kokoro usa espeak-ng (voz robótica, solo para pruebas). Personajes, fondos y música se generan por código: todo es original.
+
+## Publicación (fase 7)
+
+```bash
+python src/miniatura.py guiones/video01_publicacion.yaml salida/videos/video01_miniatura.png
+python src/publicar.py salida/videos/video01.mp4 guiones/video01_publicacion.yaml --simular   # revisar
+python src/publicar.py salida/videos/video01.mp4 guiones/video01_publicacion.yaml             # sube en PRIVADO
+```
+Necesita `client_secret.json` (OAuth de escritorio, Google Cloud Console). Sube marcado "Creado para niños", con capítulos, miniatura y subtítulos. La miniatura personalizada exige canal verificado por teléfono.

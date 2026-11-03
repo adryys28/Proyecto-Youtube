@@ -204,6 +204,7 @@ class Productor:
         self.g, self.voz, self.cache = guion, voz, cache
         self.L = Lienzo(cache)
         self.planos = []
+        self.inicios = {}   # id de escena -> índice del primer plano (para capítulos)
 
     def plano(self, fondo, capas, audio, sub=None):
         dur = round(duracion(audio) * FPS) / FPS
@@ -219,6 +220,7 @@ class Productor:
 
     # --- tipos de escena ---
     def escena(self, e):
+        self.inicios[e["id"]] = len(self.planos)
         t = e["tipo"]
         fondo = e.get("fondo", "liso")
         per = e.get("personaje")
@@ -326,6 +328,14 @@ class Productor:
              "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
              "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", salida])
         self.srt(salida[:-4] + ".srt")
+        self.tiempos(salida[:-4] + ".tiempos.json")
+
+    def tiempos(self, ruta):
+        acumulado, t = [], 0.0
+        for p in self.planos:
+            acumulado.append(t); t += p["dur"]
+        json.dump({"duracion": t, "escenas": {k: round(acumulado[i], 2) for k, i in self.inicios.items() if i < len(acumulado)}},
+                  open(ruta, "w", encoding="utf-8"), indent=1)
 
     def srt(self, ruta):
         def ts(s):
@@ -366,7 +376,7 @@ def main():
     print(f"  {len(P.planos)} planos, {total/60:.1f} min, voz: {voz.motor}")
     salida = os.path.join(a.salida, f"{v['id']}{'_prueba' if a.limite else ''}.mp4")
     P.render(salida, a.ancho)
-    print(f"-> {salida}\n-> {salida[:-4]}.srt")
+    print(f"-> {salida}\n-> {salida[:-4]}.srt\n-> {salida[:-4]}.tiempos.json")
 
 
 if __name__ == "__main__":

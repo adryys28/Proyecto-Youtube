@@ -4,3 +4,5 @@ salida/
 *.mp4
 *.webm
 *.part
+client_secret*.json
+token.json

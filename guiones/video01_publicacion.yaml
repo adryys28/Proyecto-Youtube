@@ -1,0 +1,45 @@
+# Metadatos de publicación del vídeo 01 (fase 7)
+titulos_alternativos:     # elegir uno; plantilla de docs/investigacion.md
+  - "Animales de la granja para bebés: primeras palabras 🐮 | Hola Palabrita"
+  - "Aprende los animales de la granja y sus sonidos 🐷🐑 | Hola Palabrita (20 min)"
+  - "¿Quién hace muuu? Animales de la granja para niños | Hola Palabrita 🐔"
+  - "Primeras palabras: vaca, cerdito, oveja y más 🐴 | Canciones infantiles Hola Palabrita"
+  - "Animales de la granja, colores y números para bebés 🐣 | Hola Palabrita"
+titulo: "Animales de la granja para bebés: primeras palabras 🐮 | Hola Palabrita"
+descripcion: |
+  ¡Hola! Soy Palabrita y hoy vamos a la granja con mi amigo Tic. 🐮🐷🐑🐔🐣🐴🦆🐶
+  Aprende 8 animales de la granja, cómo suenan, sus colores y a contar hasta 4, con canciones y juegos.
+
+  Pensado para niños y niñas de 1 a 3 años: palabras despacio, repetición y pausas para que repitan.
+
+  🎵 Canciones: melodías tradicionales de dominio público con letra y arreglos originales de Hola Palabrita.
+  Ideas para casa: haced juntos los gestos de cada animal y repetid las palabras en voz alta.
+
+  {capitulos}
+
+  #animalesdelagranja #primeraspalabras #cancionesinfantiles
+etiquetas: [animales de la granja, animales para niños, primeras palabras, aprender a hablar, vocabulario bebés,
+  sonidos de animales, canciones infantiles, canciones para bebés, colores para niños, números para niños,
+  hola palabrita, videos educativos para niños]
+categoria: "27"           # Educación
+idioma: es
+creado_para_ninos: true    # obligatorio (COPPA)
+contenido_sintetico: false # animación evidente: no requiere declaración (ver docs/herramientas.md); revisar si cambia el estilo
+capitulos:                 # id de escena del guion -> título del capítulo
+  gancho: "Inicio"
+  cancion_inicio: "Canción: Vamos a la granja"
+  vaca_pista: "La vaca"
+  cerdo_pista: "El cerdito"
+  oveja_pista: "La oveja"
+  gallina_pista: "La gallina"
+  cancion_mitad: "Canción: Vamos a la granja"
+  pollito_pista: "El pollito"
+  caballo_pista: "El caballo"
+  pato_pista: "El pato"
+  perro_pista: "El perro"
+  juego_intro: "Juego: ¿quién falta?"
+  repaso: "Repaso"
+  despedida: "¡Adiós!"
+miniatura:
+  texto: "¡ANIMALES!"
+  animales: [vaca, cerdo, pollito]
