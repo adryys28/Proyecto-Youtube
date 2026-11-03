@@ -1,0 +1,769 @@
+# Guion del vídeo 01 — Hola Palabrita: animales de la granja
+# Generado en la fase 5. Editable a mano.
+video:
+  id: video01
+  titulo_trabajo: Animales de la granja | Hola Palabrita
+  duracion_objetivo_min: 25
+  edad: 1-3 años
+  objetivo: 'Vocabulario: 8 animales de la granja, su sonido, color y contar hasta 4'
+  personajes:
+    palabrita: Nube pequeña, blanca con mejillas rosas; habla despacio
+    tic: Pájaro azul pequeño; pregunta '¿qué es esto?'
+  voz:
+    motor: kokoro
+    idioma: e
+    velocidad: 0.85
+  nota_legal: Melodías de dominio público; letras, arreglos, voces y dibujos propios
+  duracion_estimada_min: 19-22 (se calcula exacta en producción con la duración real de voces y canciones)
+canciones:
+  que_sera:
+    titulo: ¿Qué será?
+    melodia_origen: Ah! vous dirai-je, maman (1761, dominio público)
+    tempo: 96
+    unidad: negra
+    notas: C4:1 C4:1 G4:1 G4:1 A4:1 A4:1 G4:2 | F4:1 F4:1 E4:1 E4:1 D4:1 D4:1 C4:2 | G4:1 G4:1 F4:1 F4:1 E4:1 E4:1 D4:2 |
+      G4:1 G4:1 F4:1 F4:1 E4:1 E4:1 D4:2 | C4:1 C4:1 G4:1 G4:1 A4:1 A4:1 G4:2 | F4:1 F4:1 E4:1 E4:1 D4:1 D4:1 C4:2
+    letra:
+    - Mira, mira, ¿qué será?
+    - en la granja, ¿quién está?
+    - Hace un ruido, ya verás,
+    - oye bien y lo sabrás.
+    - Mira, mira, ¿qué será?
+    - en la granja, ¿quién está?
+  donde_esta:
+    titulo: ¿Dónde está?
+    melodia_origen: Frère Jacques (s. XVIII, dominio público)
+    tempo: 110
+    unidad: negra
+    notas: C4:1 D4:1 E4:1 C4:1 | C4:1 D4:1 E4:1 C4:1 | E4:1 F4:1 G4:2 | E4:1 F4:1 G4:2 | G4:0.5 A4:0.5 G4:0.5 F4:0.5 E4:1
+      C4:1 | G4:0.5 A4:0.5 G4:0.5 F4:0.5 E4:1 C4:1 | C4:1 G3:1 C4:2 | C4:1 G3:1 C4:2
+    letra:
+    - ¿Dónde está
+    - '{animal}?'
+    - ¿Dónde estás?
+    - ¿Dónde estás?
+    - '{sonido}, {sonido}, me dice,'
+    - '{sonido}, {sonido}, me dice,'
+    - '{sonido}, {sonido}...'
+    - '{sonido}, {sonido}...'
+    nota: La letra se adapta a cada animal; ajustar sílabas en producción
+  vamos_granja:
+    titulo: Vamos a la granja
+    melodia_origen: Row, Row, Row Your Boat (1852, dominio público)
+    tempo: 100
+    unidad: corchea
+    compas: 6/8
+    notas: C4:3 C4:3 | C4:2 D4:1 E4:3 | E4:2 D4:1 E4:2 F4:1 | G4:6 | C5:1 C5:1 C5:1 G4:1 G4:1 G4:1 | E4:1 E4:1 E4:1 C4:1 C4:1
+      C4:1 | G4:2 F4:1 E4:2 D4:1 | C4:6
+    letra:
+    - Vamos, vamos ya,
+    - con mamá y papá,
+    - lararalá, lararalá,
+    - lararalá, lararalá,
+    - ¡qué feliz será!
+escenas:
+- id: gancho
+  tipo: gancho
+  fondo: granja
+  personaje: palabrita
+  animales_preview:
+  - vaca
+  - cerdo
+  - oveja
+  - gallina
+  - pollito
+  - caballo
+  - pato
+  - perro
+  voz: ¡Hola! Escucha... muuu. ¿Quién será? ¡Vamos a la granja a descubrirlo!
+  pausa: 0
+  pantalla: ¿Quién será?
+  nota: 'Primeros 10 s: sonido + pregunta + desfile rápido de animales'
+- id: presentacion
+  tipo: narracion
+  personaje: palabrita
+  fondo: granja
+  voz: Soy Palabrita, y este es mi amigo Tic. Hoy vamos a aprender los animales de la granja. ¿Me ayudas?
+  pausa: 2
+- id: cancion_inicio
+  tipo: cancion
+  cancion: vamos_granja
+  fondo: granja
+  repeticiones: 2
+  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+- id: cancion_que_es
+  tipo: cancion
+  cancion: que_sera
+  fondo: granja
+  repeticiones: 2
+  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+- id: vaca_pista
+  tipo: narracion
+  personaje: tic
+  fondo: granja
+  animal: null
+  voz: Escucha... muuu. ¿Quién hace muuu?
+  pausa: 3
+  pantalla: '?'
+- id: vaca_revela
+  tipo: narracion
+  personaje: palabrita
+  fondo: granja
+  animal: vaca
+  voz: ¡Es la vaca! La vaca.
+  pausa: 1
+  pantalla: VACA
+- id: vaca_repite
+  tipo: repeticion
+  personaje: palabrita
+  fondo: liso
+  animal: vaca
+  voz:
+  - va... ca.
+  - vaca.
+  - ¡Ahora tú! vaca.
+  pausa: 2
+  pantalla: va-ca
+- id: vaca_color
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: vaca
+  colores:
+  - '#ffffff'
+  - '#222222'
+  voz: La vaca es blanca y negra.
+  pausa: 1
+  pantalla: blanca y negra
+- id: vaca_contar
+  tipo: contar
+  personaje: tic
+  fondo: granja
+  animal: vaca
+  cantidad: 3
+  voz: 'Vamos a contar: una, dos, tres. ¡Tres vacas!'
+  pausa: 1
+  pantalla: '3'
+- id: vaca_cancion
+  tipo: cancion
+  cancion: donde_esta
+  animal: vaca
+  fondo: granja
+  letra_vars:
+    animal: la vaca
+    sonido: muuu
+  repeticiones: 2
+  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+- id: vaca_gesto
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: vaca
+  voz: 'Pon las manos como cuernos y di conmigo: muuu.'
+  pausa: 3
+  pantalla: muuu
+- id: cerdo_pista
+  tipo: narracion
+  personaje: tic
+  fondo: granja
+  animal: null
+  voz: Escucha... oinc, oinc. ¿Quién hace oinc?
+  pausa: 3
+  pantalla: '?'
+- id: cerdo_revela
+  tipo: narracion
+  personaje: palabrita
+  fondo: granja
+  animal: cerdo
+  voz: ¡Es el cerdito! El cerdito.
+  pausa: 1
+  pantalla: CERDITO
+- id: cerdo_repite
+  tipo: repeticion
+  personaje: palabrita
+  fondo: liso
+  animal: cerdo
+  voz:
+  - cer... di... to.
+  - cerdito.
+  - ¡Ahora tú! cerdito.
+  pausa: 2
+  pantalla: cer-di-to
+- id: cerdo_color
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: cerdo
+  colores:
+  - '#f7a8c4'
+  voz: El cerdito es rosa.
+  pausa: 1
+  pantalla: rosa
+- id: cerdo_contar
+  tipo: contar
+  personaje: tic
+  fondo: granja
+  animal: cerdo
+  cantidad: 2
+  voz: 'Vamos a contar: uno, dos. ¡Dos cerditos!'
+  pausa: 1
+  pantalla: '2'
+- id: cerdo_cancion
+  tipo: cancion
+  cancion: donde_esta
+  animal: cerdo
+  fondo: granja
+  letra_vars:
+    animal: el cerdito
+    sonido: oinc
+  repeticiones: 2
+  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+- id: cerdo_gesto
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: cerdo
+  voz: 'Toca tu nariz como un cerdito y di conmigo: oinc, oinc.'
+  pausa: 3
+  pantalla: oinc, oinc
+- id: oveja_pista
+  tipo: narracion
+  personaje: tic
+  fondo: granja
+  animal: null
+  voz: Escucha... beee. ¿Quién hace beee?
+  pausa: 3
+  pantalla: '?'
+- id: oveja_revela
+  tipo: narracion
+  personaje: palabrita
+  fondo: granja
+  animal: oveja
+  voz: ¡Es la oveja! La oveja.
+  pausa: 1
+  pantalla: OVEJA
+- id: oveja_repite
+  tipo: repeticion
+  personaje: palabrita
+  fondo: liso
+  animal: oveja
+  voz:
+  - o... ve... ja.
+  - oveja.
+  - ¡Ahora tú! oveja.
+  pausa: 2
+  pantalla: o-ve-ja
+- id: oveja_color
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: oveja
+  colores:
+  - '#f5f5f5'
+  voz: La oveja es blanca.
+  pausa: 1
+  pantalla: blanca
+- id: oveja_contar
+  tipo: contar
+  personaje: tic
+  fondo: granja
+  animal: oveja
+  cantidad: 3
+  voz: 'Vamos a contar: una, dos, tres. ¡Tres ovejas!'
+  pausa: 1
+  pantalla: '3'
+- id: oveja_cancion
+  tipo: cancion
+  cancion: donde_esta
+  animal: oveja
+  fondo: granja
+  letra_vars:
+    animal: la oveja
+    sonido: beee
+  repeticiones: 2
+  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+- id: oveja_gesto
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: oveja
+  voz: 'Haz una nube con los brazos, como su lana y di conmigo: beee.'
+  pausa: 3
+  pantalla: beee
+- id: gallina_pista
+  tipo: narracion
+  personaje: tic
+  fondo: granja
+  animal: null
+  voz: Escucha... co, co, co. ¿Quién hace co?
+  pausa: 3
+  pantalla: '?'
+- id: gallina_revela
+  tipo: narracion
+  personaje: palabrita
+  fondo: granja
+  animal: gallina
+  voz: ¡Es la gallina! La gallina.
+  pausa: 1
+  pantalla: GALLINA
+- id: gallina_repite
+  tipo: repeticion
+  personaje: palabrita
+  fondo: liso
+  animal: gallina
+  voz:
+  - ga... lli... na.
+  - gallina.
+  - ¡Ahora tú! gallina.
+  pausa: 2
+  pantalla: ga-lli-na
+- id: gallina_color
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: gallina
+  colores:
+  - '#a0522d'
+  voz: La gallina es marrón.
+  pausa: 1
+  pantalla: marrón
+- id: gallina_contar
+  tipo: contar
+  personaje: tic
+  fondo: granja
+  animal: gallina
+  cantidad: 2
+  voz: 'Vamos a contar: una, dos. ¡Dos gallinas!'
+  pausa: 1
+  pantalla: '2'
+- id: gallina_cancion
+  tipo: cancion
+  cancion: donde_esta
+  animal: gallina
+  fondo: granja
+  letra_vars:
+    animal: la gallina
+    sonido: co
+  repeticiones: 2
+  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+- id: gallina_gesto
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: gallina
+  voz: 'Mueve los brazos como alas y di conmigo: co, co, co.'
+  pausa: 3
+  pantalla: co, co, co
+- id: cancion_mitad
+  tipo: cancion
+  cancion: vamos_granja
+  fondo: granja
+  repeticiones: 2
+  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+- id: pollito_pista
+  tipo: narracion
+  personaje: tic
+  fondo: granja
+  animal: null
+  voz: Escucha... pío, pío. ¿Quién hace pío?
+  pausa: 3
+  pantalla: '?'
+- id: pollito_revela
+  tipo: narracion
+  personaje: palabrita
+  fondo: granja
+  animal: pollito
+  voz: ¡Es el pollito! El pollito.
+  pausa: 1
+  pantalla: POLLITO
+- id: pollito_repite
+  tipo: repeticion
+  personaje: palabrita
+  fondo: liso
+  animal: pollito
+  voz:
+  - po... lli... to.
+  - pollito.
+  - ¡Ahora tú! pollito.
+  pausa: 2
+  pantalla: po-lli-to
+- id: pollito_color
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: pollito
+  colores:
+  - '#ffd93b'
+  voz: El pollito es amarillo.
+  pausa: 1
+  pantalla: amarillo
+- id: pollito_contar
+  tipo: contar
+  personaje: tic
+  fondo: granja
+  animal: pollito
+  cantidad: 4
+  voz: 'Vamos a contar: uno, dos, tres, cuatro. ¡Cuatro pollitos!'
+  pausa: 1
+  pantalla: '4'
+- id: pollito_cancion
+  tipo: cancion
+  cancion: donde_esta
+  animal: pollito
+  fondo: granja
+  letra_vars:
+    animal: el pollito
+    sonido: pío
+  repeticiones: 2
+  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+- id: pollito_gesto
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: pollito
+  voz: 'Abre y cierra la mano como un pico y di conmigo: pío, pío.'
+  pausa: 3
+  pantalla: pío, pío
+- id: caballo_pista
+  tipo: narracion
+  personaje: tic
+  fondo: granja
+  animal: null
+  voz: Escucha... hiiii. ¿Quién hace hiiii?
+  pausa: 3
+  pantalla: '?'
+- id: caballo_revela
+  tipo: narracion
+  personaje: palabrita
+  fondo: granja
+  animal: caballo
+  voz: ¡Es el caballo! El caballo.
+  pausa: 1
+  pantalla: CABALLO
+- id: caballo_repite
+  tipo: repeticion
+  personaje: palabrita
+  fondo: liso
+  animal: caballo
+  voz:
+  - ca... ba... llo.
+  - caballo.
+  - ¡Ahora tú! caballo.
+  pausa: 2
+  pantalla: ca-ba-llo
+- id: caballo_color
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: caballo
+  colores:
+  - '#8b5a2b'
+  voz: El caballo es marrón.
+  pausa: 1
+  pantalla: marrón
+- id: caballo_contar
+  tipo: contar
+  personaje: tic
+  fondo: granja
+  animal: caballo
+  cantidad: 2
+  voz: 'Vamos a contar: uno, dos. ¡Dos caballos!'
+  pausa: 1
+  pantalla: '2'
+- id: caballo_cancion
+  tipo: cancion
+  cancion: donde_esta
+  animal: caballo
+  fondo: granja
+  letra_vars:
+    animal: el caballo
+    sonido: hiiii
+  repeticiones: 2
+  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+- id: caballo_gesto
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: caballo
+  voz: 'Da saltitos como un caballo y di conmigo: hiiii.'
+  pausa: 3
+  pantalla: hiiii
+- id: pato_pista
+  tipo: narracion
+  personaje: tic
+  fondo: granja
+  animal: null
+  voz: Escucha... cua, cua. ¿Quién hace cua?
+  pausa: 3
+  pantalla: '?'
+- id: pato_revela
+  tipo: narracion
+  personaje: palabrita
+  fondo: granja
+  animal: pato
+  voz: ¡Es el pato! El pato.
+  pausa: 1
+  pantalla: PATO
+- id: pato_repite
+  tipo: repeticion
+  personaje: palabrita
+  fondo: liso
+  animal: pato
+  voz:
+  - pa... to.
+  - pato.
+  - ¡Ahora tú! pato.
+  pausa: 2
+  pantalla: pa-to
+- id: pato_color
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: pato
+  colores:
+  - '#ffd93b'
+  - '#ff8c1a'
+  voz: El pato es amarillo y naranja.
+  pausa: 1
+  pantalla: amarillo y naranja
+- id: pato_contar
+  tipo: contar
+  personaje: tic
+  fondo: granja
+  animal: pato
+  cantidad: 3
+  voz: 'Vamos a contar: uno, dos, tres. ¡Tres patos!'
+  pausa: 1
+  pantalla: '3'
+- id: pato_cancion
+  tipo: cancion
+  cancion: donde_esta
+  animal: pato
+  fondo: granja
+  letra_vars:
+    animal: el pato
+    sonido: cua
+  repeticiones: 2
+  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+- id: pato_gesto
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: pato
+  voz: 'Camina como un pato y di conmigo: cua, cua.'
+  pausa: 3
+  pantalla: cua, cua
+- id: perro_pista
+  tipo: narracion
+  personaje: tic
+  fondo: granja
+  animal: null
+  voz: Escucha... guau, guau. ¿Quién hace guau?
+  pausa: 3
+  pantalla: '?'
+- id: perro_revela
+  tipo: narracion
+  personaje: palabrita
+  fondo: granja
+  animal: perro
+  voz: ¡Es el perro! El perro.
+  pausa: 1
+  pantalla: PERRO
+- id: perro_repite
+  tipo: repeticion
+  personaje: palabrita
+  fondo: liso
+  animal: perro
+  voz:
+  - pe... rro.
+  - perro.
+  - ¡Ahora tú! perro.
+  pausa: 2
+  pantalla: pe-rro
+- id: perro_color
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: perro
+  colores:
+  - '#c8a165'
+  voz: El perro es marrón claro.
+  pausa: 1
+  pantalla: marrón claro
+- id: perro_contar
+  tipo: contar
+  personaje: tic
+  fondo: granja
+  animal: perro
+  cantidad: 1
+  voz: 'Vamos a contar: uno. ¡Un perro!'
+  pausa: 1
+  pantalla: '1'
+- id: perro_cancion
+  tipo: cancion
+  cancion: donde_esta
+  animal: perro
+  fondo: granja
+  letra_vars:
+    animal: el perro
+    sonido: guau
+  repeticiones: 2
+  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+- id: perro_gesto
+  tipo: narracion
+  personaje: palabrita
+  fondo: liso
+  animal: perro
+  voz: 'Mueve la colita y di conmigo: guau, guau.'
+  pausa: 3
+  pantalla: guau, guau
+- id: juego_intro
+  tipo: narracion
+  personaje: tic
+  fondo: granja
+  voz: ¡Juego! Los animales se esconden. ¿Quién falta?
+  pausa: 1
+- id: juego_vaca
+  tipo: quien_falta
+  fondo: granja
+  animales:
+  - oveja
+  - caballo
+  - vaca
+  falta: vaca
+  voz:
+  - Mira bien...
+  - ¿Quién falta?
+  - ¡La vaca!
+  pausa: 3
+- id: juego_cerdo
+  tipo: quien_falta
+  fondo: granja
+  animales:
+  - perro
+  - vaca
+  - cerdo
+  falta: cerdo
+  voz:
+  - Mira bien...
+  - ¿Quién falta?
+  - ¡El cerdito!
+  pausa: 3
+- id: juego_oveja
+  tipo: quien_falta
+  fondo: granja
+  animales:
+  - gallina
+  - vaca
+  - oveja
+  falta: oveja
+  voz:
+  - Mira bien...
+  - ¿Quién falta?
+  - ¡La oveja!
+  pausa: 3
+- id: juego_gallina
+  tipo: quien_falta
+  fondo: granja
+  animales:
+  - pollito
+  - perro
+  - gallina
+  falta: gallina
+  voz:
+  - Mira bien...
+  - ¿Quién falta?
+  - ¡La gallina!
+  pausa: 3
+- id: juego_pollito
+  tipo: quien_falta
+  fondo: granja
+  animales:
+  - gallina
+  - pato
+  - pollito
+  falta: pollito
+  voz:
+  - Mira bien...
+  - ¿Quién falta?
+  - ¡El pollito!
+  pausa: 3
+- id: juego_caballo
+  tipo: quien_falta
+  fondo: granja
+  animales:
+  - gallina
+  - cerdo
+  - caballo
+  falta: caballo
+  voz:
+  - Mira bien...
+  - ¿Quién falta?
+  - ¡El caballo!
+  pausa: 3
+- id: juego_pato
+  tipo: quien_falta
+  fondo: granja
+  animales:
+  - vaca
+  - gallina
+  - pato
+  falta: pato
+  voz:
+  - Mira bien...
+  - ¿Quién falta?
+  - ¡El pato!
+  pausa: 3
+- id: juego_perro
+  tipo: quien_falta
+  fondo: granja
+  animales:
+  - vaca
+  - gallina
+  - perro
+  falta: perro
+  voz:
+  - Mira bien...
+  - ¿Quién falta?
+  - ¡El perro!
+  pausa: 3
+- id: repaso
+  tipo: repaso
+  fondo: liso
+  animales:
+  - vaca
+  - cerdo
+  - oveja
+  - gallina
+  - pollito
+  - caballo
+  - pato
+  - perro
+  voz:
+  - ¿Quién es? ... ¡la vaca!
+  - ¿Quién es? ... ¡el cerdito!
+  - ¿Quién es? ... ¡la oveja!
+  - ¿Quién es? ... ¡la gallina!
+  - ¿Quién es? ... ¡el pollito!
+  - ¿Quién es? ... ¡el caballo!
+  - ¿Quién es? ... ¡el pato!
+  - ¿Quién es? ... ¡el perro!
+  pausa: 3
+- id: cancion_final
+  tipo: cancion
+  cancion: que_sera
+  fondo: granja
+  repeticiones: 2
+  nota: '2.ª vez: karaoke con letra resaltada, ''¡ahora tú!'''
+- id: despedida
+  tipo: narracion
+  personaje: palabrita
+  fondo: noche
+  voz: ¡Muy bien! Hoy has aprendido muchos animales. Los animales ya se van a dormir. ¡Adiós, hasta pronto!
+  pausa: 2
+- id: nana
+  tipo: cancion
+  cancion: que_sera
+  fondo: noche
+  instrumental: true
+  tempo: 60
