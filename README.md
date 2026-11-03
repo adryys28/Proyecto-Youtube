@@ -1,4 +1,4 @@
-# Proyecto YouTube — canal de clips automatizado
+# Proyecto YouTube — canal infantil de contenido propio
 
 Pipeline: **analizar referentes → detectar ganchos → producir contenido propio → publicar → medir**.
 
