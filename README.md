@@ -82,3 +82,10 @@ python src/publicar.py salida/videos/video01.mp4 guiones/video01_publicacion.yam
 python src/publicar.py salida/videos/video01.mp4 guiones/video01_publicacion.yaml             # sube en PRIVADO
 ```
 Necesita `client_secret.json` (OAuth de escritorio, Google Cloud Console). Sube marcado "Creado para niños", con capítulos, miniatura y subtítulos. La miniatura personalizada exige canal verificado por teléfono.
+
+## Medición (fase 8)
+
+```bash
+python src/medir.py --desde 2026-12-01 --hasta 2026-12-31 --video ID --tiempos salida/videos/video01.tiempos.json
+```
+Genera `docs/informes/AAAA-MM.md` con vistas, % visto, fuentes de tráfico y los puntos de abandono traducidos a la escena del guion.

@@ -1,4 +1,5 @@
 .env
+token_analytics.json
 __pycache__/
 salida/
 *.mp4
